@@ -29,6 +29,15 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 # This will be the default in next version
 ST_RATELIMIT_CACHE = 'default'
 
+ST_PRIVATE_FORUM = True
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'search/whoosh_index'),
+    },
+}
+
 ROOT_URLCONF = 'forum.urls'
 
 WSGI_APPLICATION = 'forum.wsgi.application'
