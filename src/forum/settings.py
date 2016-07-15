@@ -13,7 +13,7 @@ from spirit.settings import *
 # You may override or extend spirit settings below...
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 DEBUG = False
 
@@ -27,7 +27,7 @@ DEFAULT_FROM_EMAIL = 'info@rehobothkerkwoerden.nl'  # Django default
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 # This will be the default in next version
-ST_RATELIMIT_CACHE = 'st_rate_limit'
+ST_RATELIMIT_CACHE = 'default'
 
 ROOT_URLCONF = 'forum.urls'
 
@@ -49,9 +49,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/forum/static/'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/forum/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -137,6 +137,6 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesSto
 # localsettings loading
 #
 
-localsettingspath = os.path.join(BASE_DIR, "forum/localsettings.py")
+localsettingspath = os.path.join(BASE_DIR, "src/forum/localsettings.py")
 if os.path.exists(localsettingspath):
     from forum.localsettings import *
