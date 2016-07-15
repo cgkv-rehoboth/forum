@@ -1,0 +1,2 @@
+django==1.8.6
+django-spirit>=0.4
