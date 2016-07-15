@@ -21,7 +21,7 @@ ADMINS = (('Arjen Rouvoet', 'a.j.rouvoet@gmail.com'), )
 
 SECRET_KEY = "b@4qbf2tg=d*xxldk08_gauzg639x&53nxm*he&-#c9&4i&2o="
 
-ALLOWED_HOSTS = ['.rehobothkerkwoerden.nl', ]
+ALLOWED_HOSTS = ['localhost', '.rehobothkerkwoerden.nl', ]
 
 DEFAULT_FROM_EMAIL = 'info@rehobothkerkwoerden.nl'  # Django default
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
@@ -29,9 +29,9 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 # This will be the default in next version
 ST_RATELIMIT_CACHE = 'st_rate_limit'
 
-ROOT_URLCONF = 'project.urls'
+ROOT_URLCONF = 'forum.urls'
 
-WSGI_APPLICATION = 'project.wsgi.application'
+WSGI_APPLICATION = 'forum.wsgi.application'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -96,14 +96,10 @@ LOGGING = {
 }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mydatabase',
-        'USER': 'mydatabaseuser',
-        'PASSWORD': 'mypassword',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': 'cgkv.forum.db',
+  }
 }
 
 # These are all the languages Spirit provides.
